@@ -1,0 +1,18 @@
+CREATE DATABASE registrousuarios;
+
+
+CREATE TABLE usuarios(
+id INT NOT NULL PRIMARY KEY,
+nombre NOT NULL VARCHAR (15), 
+email NOT NULL VARCHAR (20),
+documento NOT NULL BIGINT,
+celular NOT NULL BIGINT,
+cuenta BIGINT
+)
+
+SELECT * FROM usuarios;
+
+INSERT INTO usuarios (nombre, email, celular, documento)
+ VALUES ("${nombre}", "${email}", ${celular}, ${documento});
+
+UPDATE usuarios SET cuenta = ${n} WHERE id= ${id};
