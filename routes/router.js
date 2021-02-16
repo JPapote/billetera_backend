@@ -1,10 +1,10 @@
 const {Router} = require('express');
 const router = Router();
 
-const {updateData, envioToken} = require('./postData/generarPago'); 
+const {updateData, envioToken} = require('./post_put/generarPago'); 
 const {verifyToken} = require('../middleware/verifyToken')
 const {getSaldo} = require('./get/getSaldo')
-const {registroNewUser} = require ('./postData/registroNewUser')
+const {registroNewUser} = require ('./post_put/registroNewUser')
 
 
 router.post('/consultarSaldo',verifyToken, getSaldo)

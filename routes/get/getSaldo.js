@@ -18,7 +18,7 @@ const getSaldo = async(req, res) => {
                        const c = Number(verify.user.celular)
                        const d = Number(verify.user.documento)
                        if(e.documento === d && e.celular === c){
-                           res.json({text:e.cuenta})
+                           res.status(200).json({text:e.cuenta})
                        }
                        
                    })

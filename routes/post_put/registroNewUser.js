@@ -18,16 +18,16 @@ try{
    
     connection.query(allUsuarios, (err, result, fields) => {
         if(err){
-            console.log(err)
+            res.status(500).json({text: 'error'})
         }
         else{
         
             const queryAdd = newUser({user:user.nombre, email:user.email, 
                                       celular:user.celular, documento:user.documento})
                 connection.query(queryAdd);
-                res.json({
+                res.status(200).json({
                     token,
-                    text: 'Registro exitoso!'
+                    text: 'success'
                 })
         } 
     
@@ -37,6 +37,8 @@ try{
 }catch(e){
     console.log(e.message)
 }
+        }else{
+            res.status(500).json({text: 'error'})
         }
 })
 }

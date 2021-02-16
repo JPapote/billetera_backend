@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use(require('./routers/router'))
+app.use(require('./routes/router'))
 
 module.exports = {
     app

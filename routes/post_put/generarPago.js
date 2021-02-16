@@ -40,10 +40,10 @@ const envioToken = async (req, res) => {
                               }, (err, resp) => {
                                   if(err){
                                       console.log(err)
-                                      res.status(500).json({text:err.message})
+                                      res.status(500).json({text:'error'})
                                   }else{
                                       t = tokenDePago
-                                      res.status(200).json({text: 'Token enviado'})
+                                      res.status(200).json({text: 'success'})
                                   }
                                 
                               })
@@ -53,12 +53,12 @@ const envioToken = async (req, res) => {
                 }
             })
         }catch(e){
-                console.log(e)
+                res.status(500).json({text: 'error'})
             }
 
         }
         else{
-            res.sendStatus(403)
+            res.sendStatus(403).json({text: 'error'})
         }
     
    
@@ -97,7 +97,7 @@ if(!valor){
                                             setValue:n, nameColumnWhere:'id', valueOfWhere:id}) 
              connection.query(updateQuery);
 
-        res.status(200).send({text:'Cuenta Pagada!'})
+        res.status(200).send({text:'success'})
                 }else{
                       res.status(500).json({text:'Su dinero es insuficiente!'})
 
@@ -120,13 +120,13 @@ if(!valor){
            const d = Number(verify.user.documento)
         if(e.documento === d && e.celular === c){
            
-           const n = e.cuenta =+ Number(valor) 
+           const n = e.cuenta + Number(valor) 
      
              const updateQuery = updateUser({nameTable:'usuarios', columnName:'cuenta', setValue: n, 
                                              nameColumnWhere:'documento', valueOfWhere: d}) 
               connection.query(updateQuery)
              
-             res.status(200).send({text:'Saldo agreditado!'})
+             res.status(200).send({text:'success'})
             
 
         }
